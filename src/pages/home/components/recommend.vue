@@ -2,12 +2,12 @@
   <div>
     <div class="title">热销推荐</div>
     <ul class="item">
-      <li class="border-bottom" v-for="item in recommendList" :key="item.rid">
-        <img :src="item.src" alt="">
+      <li class="border-bottom" v-for="item in list" :key="item.id">
+        <img :src="item.imgUrl" alt="">
         <dl>
-          <dt>{{item.title}}</dt>
-          <dd>{{item.place}}</dd>
-          <dd>{{item.price}}</dd>
+          <dt>{{item.desc}}</dt>
+          <dd>{{item.title}}</dd>
+          <dd>$455</dd>
         </dl>
       </li>
     </ul>
@@ -16,15 +16,12 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      recommendList: [{
-        rid: '0001',
-        src: 'https://imgs.qunarzz.com/douxing/i1/1711/f6/71d34beed7078a02.jpg',
-        title: '普吉岛【双体帆船包船】私密独享出海浮潜海钓一日游可登岛包专车接送',
-        price: '¥4449',
-        place: '地区：普吉岛'
-      }]
+
     }
   }
 }

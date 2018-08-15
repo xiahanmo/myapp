@@ -3,11 +3,11 @@
     <div class="content">
       <h4 class="border-topbottom">当前城市</h4>
       <ul>
-        <li><span>北京</span></li>
+        <li><span>{{this.currentCity}}</span></li>
       </ul>
       <h4 class="border-topbottom">热门城市</h4>
       <ul>
-        <li v-for="item of hot" :key="item.id">
+        <li v-for="item of hot" :key="item.id" @click="handleCityClick(item.name)">
           <span>{{item.name}}</span>
         </li>
       </ul>
@@ -23,6 +23,7 @@
 </template>
 <script>
 import BScroll from 'better-scroll'
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -30,11 +31,20 @@ export default {
     hot: Array,
     letter: String
   },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
   mounted () {
     this.scroll = new BScroll(this.$refs.ref)
   },
   methods: {
-
+    handleCityClick (city) {
+      // this.$store.dispatch('changeCity', city)
+      this.changeCityCommit(city)
+    },
+    ...mapMutations(['changeCityCommit'])
   },
   watch: {
     letter () {

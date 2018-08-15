@@ -43,6 +43,8 @@ export default {
     handleCityClick (city) {
       // this.$store.dispatch('changeCity', city)
       this.changeCityCommit(city)
+      // 编程式导航，js控制页面跳转
+      this.$router.push('/')
     },
     ...mapMutations(['changeCityCommit'])
   },

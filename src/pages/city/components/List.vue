@@ -12,7 +12,7 @@
         </li>
       </ul>
       <div v-for="(item,index) of cities" :key="index">
-        <h4 class="border-topbottom">{{index}}</h4>
+        <h4 class="border-topbottom" :ref="index">{{index}}</h4>
         <div class="item" v-for="items of item" :key="items.id">
           <p class="border-bottom">{{items.name}}</p>
         </div>
@@ -27,23 +27,37 @@ export default {
   name: 'CityList',
   props: {
     cities: Object,
-    hot: Array
+    hot: Array,
+    letter: String
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.ref)
+  },
+  methods: {
+
+  },
+  watch: {
+    letter () {
+      console.log(this.letter)
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
+
   }
 }
 </script>
 <style lang="stylus" scoped>
 @import '~@styles/varibles.styl';
 .wrapper
-  // position absolute
-  // top 0
-  // left 0
-  // bottom 0
-  // right 0
-  // overflow hidden
-  // margin-top 1.68rem
+  position absolute
+  top 0
+  left 0
+  bottom 0
+  right 0
+  overflow hidden
+  margin-top 1.68rem
   .content
     // overflow-y scroll
     h4

@@ -2,14 +2,14 @@
   <div>
     <div class="title">热销推荐</div>
     <ul class="item">
-      <li class="border-bottom" v-for="item in list" :key="item.id">
+      <router-link tag='li' class="border-bottom" v-for="item in list" :key="item.id" :to="'/detail/'+item.id">
         <img :src="item.imgUrl" alt="">
         <dl>
           <dt>{{item.desc}}</dt>
           <dd>{{item.title}}</dd>
           <dd>$455</dd>
         </dl>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

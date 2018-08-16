@@ -42,8 +42,11 @@ export default {
       }
     }
   },
-  mounted () {
+  activated () {
     window.addEventListener('scroll', this.HandleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.HandleScroll)
   }
 
 }

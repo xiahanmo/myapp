@@ -2,7 +2,7 @@
   <div>
     <detail-header></detail-header>
     <detail-banner :list="gallaryImgs" :sightName="sightName"></detail-banner>
-    <detail-list></detail-list>
+    <detail-list :list="categoryList"></detail-list>
   </div>
 </template>
 <script>
@@ -20,7 +20,8 @@ export default {
   data () {
     return {
       gallaryImgs: [],
-      sightName: ''
+      sightName: '',
+      categoryList: []
     }
   },
   mounted () {
@@ -40,6 +41,7 @@ export default {
       if (msg.ret && msg.data) {
         this.gallaryImgs = msg.data['' + this.$route.params.id + ''].gallaryImgs
         this.sightName = msg.data['' + this.$route.params.id + ''].sightName
+        this.categoryList = msg.data['' + this.$route.params.id + ''].categoryList
       }
     }
   }

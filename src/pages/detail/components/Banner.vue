@@ -9,7 +9,7 @@
       </swiper>
     </div>
     <ul>
-      <li>产品编号</li>
+      <li>{{sightName}}</li>
       <li><span class="iconfont banner-icon">&#xe692;</span>{{listNum}}</li>
     </ul>
     <common-gallary v-show="isShowGallary" :list='this.list' @close="handleGallaryClose"></common-gallary>
@@ -22,9 +22,13 @@ export default {
   components: {
     CommonGallary
   },
+  props: {
+    list: Array,
+    sightName: String
+  },
   data () {
     return {
-      list: ['https://img1.qunarzz.com/p/tts9/1708/23/8e372e48c656b102.jpg_r_640x420x90_9b14366e.jpg', 'https://img1.qunarzz.com/p/tts4/1801/bd/b1d05fc1258e8802.jpg_r_640x420x90_d391b0f3.jpg'],
+      // list: ['https://img1.qunarzz.com/p/tts9/1708/23/8e372e48c656b102.jpg_r_640x420x90_9b14366e.jpg', 'https://img1.qunarzz.com/p/tts4/1801/bd/b1d05fc1258e8802.jpg_r_640x420x90_d391b0f3.jpg'],
       swiperOption: {
         loop: true,
         pagination: '.swiper-pagination',
@@ -55,6 +59,7 @@ export default {
     width 100%
     height 0
     padding-bottom 55%
+    overflow hidden
     img
       width 100%
     .swiper-pagination-fraction

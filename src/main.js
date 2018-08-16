@@ -6,6 +6,8 @@ import router from './router'
 // 移动端300ms点击延迟解决方案
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+// 解决手机白屏问题，低端浏览器手机不能使用promise
+import 'babel-polyfill'
 // vuex
 import store from './store/index'
 

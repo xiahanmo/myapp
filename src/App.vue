@@ -7,8 +7,12 @@
 </template>
 
 <script>
+import FadeAnimation from '@common/fade/FadeAnimation'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    FadeAnimation
+  }
 }
 </script>
 

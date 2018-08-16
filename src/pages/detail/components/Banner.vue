@@ -12,15 +12,19 @@
       <li>{{sightName}}</li>
       <li><span class="iconfont banner-icon">&#xe692;</span>{{listNum}}</li>
     </ul>
-    <common-gallary v-show="isShowGallary" :list='this.list' @close="handleGallaryClose"></common-gallary>
+    <fade-animation>
+      <common-gallary v-show="isShowGallary" :list='this.list' @close="handleGallaryClose"></common-gallary>
+    </fade-animation>
   </div>
 </template>
 <script>
 import CommonGallary from '@common/gallary/Gallary'
+import FadeAnimation from '@common/fade/FadeAnimation'
 export default {
   name: 'DetailBanner',
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   },
   props: {
     list: Array,

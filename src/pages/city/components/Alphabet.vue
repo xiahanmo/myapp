@@ -6,7 +6,7 @@
     :ref="item"
     :data-id='index'
     @click="handleLetterClick"
-    @touchstart="handleLetterStart"
+    @touchstart.prevent="handleLetterStart"
     @touchmove="handleLetterMove"
     @touchend="handleLetterEnd"
     >{{item}}</li>

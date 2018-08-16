@@ -31,6 +31,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@styles/varibles.styl'
+@import '~@styles/mixins.styl'
   .header
     height .86rem
     line-height .86rem
@@ -46,7 +47,7 @@ export default {
         font-size .4rem
     .header-right
       float right
-      width 1.24rem
+      min-width 1.24rem
       text-align center
       .arrow-font
         color #ffffff

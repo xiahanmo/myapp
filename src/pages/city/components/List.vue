@@ -13,7 +13,7 @@
       </ul>
       <div v-for="(item,index) of cities" :key="index">
         <h4 class="border-topbottom" :ref="index">{{index}}</h4>
-        <div class="item" v-for="items of item" :key="items.id">
+        <div class="item" v-for="items of item" :key="items.id" @click="handleCityClick(items.name)">
           <p class="border-bottom">{{items.name}}</p>
         </div>
       </div>
